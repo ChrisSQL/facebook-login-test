@@ -1,6 +1,7 @@
 import React from 'react';
 import FacebookLoginWithButton from 'react-facebook-login';
 import fire from './fire';
+import logo from './logo.svg';
 
 
 const componentClicked = () => {
@@ -20,9 +21,9 @@ const LoginButton = ({facebookResponse}) => (
 
 const UserScreen = ({user}) => (
     <>
-      <h1>{user.name} Joins the Sesh.</h1>
+      <h4>{user.name} Joins the Sesh.</h4>
       <img src={user.picture.data.url} height={user.picture.height} width={user.picture.width} alt="avatar"/>
-        <h2>Sesh app for iOS is coming soon.</h2>
+        <h4>Sesh app for iOS is coming soon.</h4>
 
         fire.database().ref('messages').push( user.name );
 
@@ -66,22 +67,32 @@ class App extends React.Component {
 
   render() {
 
+      return (
+          <div className="App">
+              <header className="App-header">
+                  <img src={logo} className="App-logo" alt="logo" />
+
+                  <LoginButton facebookResponse={this.facebookResponse}/>
+
+              </header>
+          </div>
+      );
 
 
-
-    return (
-
-
-        <div style={{ margin: "auto", textAlign: "center", paddingTop: "2em" }}>
-          { this.state.user ? <UserScreen user={this.state.user}/> :
-
-
-              <LoginButton facebookResponse={this.facebookResponse}/>
-          }
-        </div>
-
-
-    )
+    // return (
+    //
+    //     <div style={{ margin: "auto", textAlign: "center", paddingTop: "2em" }}>
+    //       { this.state.user ? <UserScreen user={this.state.user}/> :
+    //
+    //
+    //
+    //
+    //       }
+    //
+    //     </div>
+    //
+    //
+    // )
   }
 }
 
