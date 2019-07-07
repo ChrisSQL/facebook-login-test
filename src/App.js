@@ -18,9 +18,9 @@ const LoginButton = ({facebookResponse}) => (
 
 const UserScreen = ({user}) => (
     <>
-      <h1>Welcome {user.name}!</h1>
-      <p>{ user.email }</p>
+      <h1>{user.name} Joins the Sesh.</h1>
       <img src={user.picture.data.url} height={user.picture.height} width={user.picture.width} alt="avatar"/>
+        <h2>Sesh app for iOS is coming soon.</h2>
     </>
 )
 
